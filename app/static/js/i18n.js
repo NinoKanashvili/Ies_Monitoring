@@ -312,6 +312,10 @@
             "events.publish.published_at": "Published at",
             "events.publish.hint_unpublished":
                 "This earthquake is not visible on the public website.",
+            "events.publish.publishing": "Publishing...",
+            "events.publish.updating": "Updating publication...",
+            "events.publish.unpublishing": "Unpublishing...",
+            "events.publish.wait": "Sending the request to the public website, please wait...",
             "events.publish.action": "Publish",
             "events.publish.update": "Update publish",
             "events.publish.unpublish": "Unpublish",
@@ -726,6 +730,10 @@
             "events.publish.published_at": "გამოქვეყნების დრო",
             "events.publish.hint_unpublished":
                 "ეს მიწისძვრა საჯარო საიტზე არ ჩანს.",
+            "events.publish.publishing": "მიმდინარეობს გამოქვეყნება...",
+            "events.publish.updating": "მიმდინარეობს განახლება...",
+            "events.publish.unpublishing": "მიმდინარეობს გამოქვეყნების გაუქმება...",
+            "events.publish.wait": "მოთხოვნა იგზავნება საჯარო საიტზე, გთხოვთ დაელოდოთ...",
             "events.publish.action": "გამოქვეყნება",
             "events.publish.update": "გამოქვეყნების განახლება",
             "events.publish.unpublish": "გამოქვეყნების გაუქმება",
