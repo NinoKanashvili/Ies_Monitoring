@@ -458,6 +458,41 @@ function renderPublishPanel(event, permissions = {}) {
     });
 }
 
+function setPublishPanelBusy(isPublish, wasPublished) {
+    const container = document.getElementById("eventDetailsPublish");
+    if (!container) {
+        return;
+    }
+
+    const statusText = isPublish
+        ? wasPublished
+            ? t("events.publish.updating", "Updating publication...")
+            : t("events.publish.publishing", "Publishing...")
+        : t("events.publish.unpublishing", "Unpublishing...");
+
+    container.classList.add("is-busy");
+    container.setAttribute("aria-busy", "true");
+
+    const icon = container.querySelector(".event-publish-status-icon i");
+    if (icon) {
+        icon.className = "fa-solid fa-arrows-rotate fa-spin";
+    }
+    const value = container.querySelector(".event-publish-status-value");
+    if (value) {
+        value.textContent = statusText;
+    }
+    const meta = container.querySelector(".event-publish-status-meta");
+    if (meta) {
+        meta.textContent = t(
+            "events.publish.wait",
+            "Sending the request to the public website, please wait..."
+        );
+    }
+    container.querySelectorAll(".event-publish-actions .btn").forEach((button) => {
+        button.disabled = true;
+    });
+}
+
 async function publishOrUnpublishEvent(event, publish, permissions) {
     const isPublish = Boolean(publish);
     const wasPublished = Boolean(event.is_published);
@@ -497,6 +532,8 @@ async function publishOrUnpublishEvent(event, publish, permissions) {
         ? `/api/publish_events/publish/${event.id}`
         : `/api/publish_events/unpublish/${event.id}`;
 
+    setPublishPanelBusy(isPublish, wasPublished);
+
     try {
         const data = await window.makeApiRequest(path, { method: "POST" });
         const updated = data?.event
@@ -524,6 +561,8 @@ async function publishOrUnpublishEvent(event, publish, permissions) {
                       ))
         );
     } catch (error) {
+        renderPublishPanel(event, permissions);
+        window.I18n?.applyTranslations?.();
         window.showAlert(
             EVENT_DETAILS_ALERT_ID,
             "danger",

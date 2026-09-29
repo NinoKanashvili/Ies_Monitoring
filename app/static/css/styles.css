@@ -674,6 +674,20 @@
     background: rgba(108, 117, 125, 0.12);
 }
 
+.event-publish-panel.is-busy {
+    border-color: rgba(var(--bs-primary-rgb), 0.35);
+    background: linear-gradient(180deg, rgba(var(--bs-primary-rgb), 0.06) 0%, #fff 70%);
+}
+
+.event-publish-panel.is-busy .event-publish-status-icon {
+    color: var(--bs-primary);
+    background: rgba(var(--bs-primary-rgb), 0.12);
+}
+
+.event-publish-panel.is-busy .event-publish-status-value {
+    color: var(--bs-primary);
+}
+
 .event-publish-status-label {
     font-size: 0.75rem;
     text-transform: uppercase;
