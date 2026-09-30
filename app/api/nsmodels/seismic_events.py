@@ -72,8 +72,8 @@ seismic_event_model = seismic_events_ns.model(
     "SeismicEvent",
     {
         "id": fields.Integer(required=True, example=1),
-        "iesdata_id": fields.String(required=False, example="IES-2026-0001"),
-        "seiscomp_oid": fields.String(required=False, example="Origin/20260805.123456.01"),
+        "iesdata_id": fields.String(required=False, example="54331"),
+        "seiscomp_oid": fields.String(required=False, example="ies2026nrtc"),
         "origin_time": fields.String(required=True, example="2026-08-05T12:30:00"),
         "latitude": fields.Float(required=True, example=41.7151),
         "longitude": fields.Float(required=True, example=44.8271),
